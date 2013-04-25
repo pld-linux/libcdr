@@ -5,14 +5,15 @@
 Summary:	A library providing ability to interpret and import Corel Draw drawings
 Summary(pl.UTF-8):	Biblioteka umożliwiająca interpretowanie i importowanie rysunków Corel Draw
 Name:		libcdr
-Version:	0.0.10
+Version:	0.0.13
 Release:	1
 License:	GPL v2+ or LGPL v2+ or MPL v1.1
 Group:		Libraries
 Source0:	http://dev-www.libreoffice.org/src/%{name}-%{version}.tar.xz
-# Source0-md5:	9078a6fb84faf8aa2b43757be9b4930d
+# Source0-md5:	34e45b6a7f54d6138fc546b37b5bf0cd
 URL:		http://www.freedesktop.org/wiki/Software/libcdr
 BuildRequires:	doxygen
+BuildRequires:	boost-devel >= 1.41.0
 BuildRequires:	lcms2-devel >= 2.0
 BuildRequires:	libicu-devel
 BuildRequires:	libstdc++-devel
@@ -118,7 +119,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog
+%doc AUTHORS ChangeLog README
 %attr(755,root,root) %{_libdir}/libcdr-0.0.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libcdr-0.0.so.0
 
@@ -142,5 +143,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/cdr2raw
 %attr(755,root,root) %{_bindir}/cdr2xhtml
+%attr(755,root,root) %{_bindir}/cdr2text
 %attr(755,root,root) %{_bindir}/cmx2raw
 %attr(755,root,root) %{_bindir}/cmx2xhtml
+%attr(755,root,root) %{_bindir}/cmx2text
