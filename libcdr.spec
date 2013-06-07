@@ -5,12 +5,12 @@
 Summary:	A library providing ability to interpret and import Corel Draw drawings
 Summary(pl.UTF-8):	Biblioteka umożliwiająca interpretowanie i importowanie rysunków Corel Draw
 Name:		libcdr
-Version:	0.0.13
+Version:	0.0.14
 Release:	1
 License:	GPL v2+ or LGPL v2+ or MPL v1.1
 Group:		Libraries
 Source0:	http://dev-www.libreoffice.org/src/%{name}-%{version}.tar.xz
-# Source0-md5:	34e45b6a7f54d6138fc546b37b5bf0cd
+# Source0-md5:	1c875ce8ebacbe6ae1ee40a28034114a
 URL:		http://www.freedesktop.org/wiki/Software/libcdr
 BuildRequires:	doxygen
 BuildRequires:	boost-devel >= 1.41.0
@@ -97,7 +97,7 @@ Aktualnie obsługiwane są XHTML i raw.
 %build
 %configure \
 	--disable-silent-rules \
-	%{!?with_static_libs:--disable-static} \
+	%{?with_static_libs:--enable-static} \
 	--disable-werror
 
 %{__make}
