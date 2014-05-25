@@ -5,20 +5,19 @@
 Summary:	A library providing ability to interpret and import Corel Draw drawings
 Summary(pl.UTF-8):	Biblioteka umożliwiająca interpretowanie i importowanie rysunków Corel Draw
 Name:		libcdr
-Version:	0.0.16
+Version:	0.1.0
 Release:	1
 License:	MPL v2.0
 Group:		Libraries
 Source0:	http://dev-www.libreoffice.org/src/%{name}-%{version}.tar.xz
-# Source0-md5:	b494bbaf48a0d5f90a525e6ea37bc096
+# Source0-md5:	71f1f54a418694b6e46c3e9633899c12
 URL:		http://www.freedesktop.org/wiki/Software/libcdr
 BuildRequires:	doxygen
 BuildRequires:	boost-devel >= 1.41.0
 BuildRequires:	lcms2-devel >= 2.0
 BuildRequires:	libicu-devel
+BuildRequires:	librevenge-devel >= 0.0
 BuildRequires:	libstdc++-devel
-BuildRequires:	libwpd-devel >= 0.9.5
-BuildRequires:	libwpg-devel >= 0.2
 BuildRequires:	pkgconfig >= 1:0.20
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
@@ -41,9 +40,9 @@ Summary(pl.UTF-8):	Pliki nagłówkowe dla libcdr
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	lcms2-devel >= 2.0
+Requires:	libicu-devel
+Requires:	librevenge-devel >= 0.0
 Requires:	libstdc++-devel
-Requires:	libwpd-devel >= 0.9.5
-Requires:	libwpg-devel >= 0.2
 Requires:	zlib-devel
 
 %description devel
@@ -97,8 +96,7 @@ Aktualnie obsługiwane są XHTML i raw.
 %build
 %configure \
 	--disable-silent-rules \
-	%{?with_static_libs:--enable-static} \
-	--disable-werror
+	%{?with_static_libs:--enable-static}
 
 %{__make}
 
@@ -119,25 +117,25 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog README
-%attr(755,root,root) %{_libdir}/libcdr-0.0.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libcdr-0.0.so.0
+%doc AUTHORS ChangeLog NEWS README
+%attr(755,root,root) %{_libdir}/libcdr-0.1.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libcdr-0.1.so.1
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/libcdr-0.0.so
-%{_includedir}/libcdr-0.0
-%{_pkgconfigdir}/libcdr-0.0.pc
+%attr(755,root,root) %{_libdir}/libcdr-0.1.so
+%{_includedir}/libcdr-0.1
+%{_pkgconfigdir}/libcdr-0.1.pc
 
 %if %{with static_libs}
 %files static
 %defattr(644,root,root,755)
-%{_libdir}/libcdr-0.0.a
+%{_libdir}/libcdr-0.1.a
 %endif
 
 %files apidocs
 %defattr(644,root,root,755)
-%doc %{_docdir}/%{name}
+%{_docdir}/%{name}
 
 %files tools
 %defattr(644,root,root,755)
