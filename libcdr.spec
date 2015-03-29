@@ -1,12 +1,12 @@
 #
 # Conditional build:
 %bcond_without	static_libs	# static library
-#
+
 Summary:	A library providing ability to interpret and import Corel Draw drawings
 Summary(pl.UTF-8):	Biblioteka umożliwiająca interpretowanie i importowanie rysunków Corel Draw
 Name:		libcdr
 Version:	0.1.1
-Release:	1
+Release:	2
 License:	MPL v2.0
 Group:		Libraries
 Source0:	http://dev-www.libreoffice.org/src/libcdr/%{name}-%{version}.tar.xz
@@ -69,6 +69,9 @@ Statyczna biblioteka libcdr.
 Summary:	libcdr API documentation
 Summary(pl.UTF-8):	Dokumentacja API biblioteki libcdr
 Group:		Documentation
+%if "%{_rpmversion}" >= "5"
+BuildArch:	noarch
+%endif
 
 %description apidocs
 API and internal documentation for libcdr library.
