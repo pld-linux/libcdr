@@ -6,7 +6,7 @@ Summary:	A library providing ability to interpret and import Corel Draw drawings
 Summary(pl.UTF-8):	Biblioteka umożliwiająca interpretowanie i importowanie rysunków Corel Draw
 Name:		libcdr
 Version:	0.1.1
-Release:	2
+Release:	3
 License:	MPL v2.0
 Group:		Libraries
 Source0:	http://dev-www.libreoffice.org/src/libcdr/%{name}-%{version}.tar.xz
