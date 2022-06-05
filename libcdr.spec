@@ -104,6 +104,7 @@ Aktualnie obsługiwane są XHTML i raw.
 %{__automake}
 %configure \
 	--disable-silent-rules \
+	--disable-tests \
 	%{?with_static_libs:--enable-static}
 
 %{__make}
